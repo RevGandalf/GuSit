@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIP Gunungsitoli</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN SCREEN -->
+<div id="login" class="wrap" hidden>
+  <h1>SIP Gunungsitoli</h1>
+  <form onsubmit="login(event)">
+    <label>Email</label>
+    <input id="l_email" type="email" autocomplete="username" required>
+    <label>Password</label>
+    <input id="l_pass" type="password" autocomplete="current-password" required>
+    <p id="l_err" class="red"></p>
+    <button class="btn primary" type="submit">Sign in</button>
+  </form>
+</div>
+
+<!-- MAIN APP -->
+<div id="app" hidden>
+  <header class="wrap">
+    <div class="top">
+      <select id="mon" aria-label="Month" onchange="curM=this.value;render()"></select>
+      <span><small id="who"></small> <button class="btn" onclick="logout()">Sign out</button></span>
+    </div>
+    <input id="q" type="search" placeholder="Search student name" oninput="render()" autocomplete="off">
+    <div id="chips"></div>
+  </header>
+  <main class="wrap" id="main"><p>Loading...</p></main>
+  <nav>
+    <button data-t="pay" onclick="go('pay')">Pay</button>
+    <button data-t="sum" onclick="go('sum')">Summary</button>
+    <button data-t="stu" onclick="go('stu')">Students</button>
+  </nav>
+  <div id="sh" class="ov" hidden onclick="if(event.target===this)closeSh()"><div class="sh" id="shin"></div></div>
+  <div id="toast"></div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
+<script src="app.js"></script>
+<script src="firebase.js"></script>
+</body>
+</html>
