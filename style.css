@@ -1,0 +1,51 @@
+* { box-sizing: border-box; }
+body { margin: 0; font: 16px Arial, Helvetica, sans-serif; color: #000; background: #fff; }
+.wrap { max-width: 680px; margin: 0 auto; padding: 12px; }
+main.wrap { padding-bottom: 80px; }
+header { position: sticky; top: 0; background: #fff; border-bottom: 1px solid #ccc; z-index: 5; }
+.top { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 8px; }
+input, select, textarea { width: 100%; font: inherit; padding: 8px; border: 1px solid #999; background: #fff; color: #000; }
+.top select { width: auto; font-weight: bold; }
+label { display: block; margin: 12px 0 4px; font-size: 14px; color: #444; }
+small { font-size: 13px; color: #555; }
+h1, h2 { margin: 16px 0 8px; }
+h2 { font-size: 20px; border-top: 1px solid #ccc; padding-top: 12px; }
+h4 { margin: 20px 0 4px; }
+.btn { font: inherit; padding: 8px 12px; border: 1px solid #666; background: #eee; color: #000; cursor: pointer; }
+.btn.primary, .big { background: #0066cc; border-color: #0066cc; color: #fff; }
+.big { width: 100%; padding: 12px; font: inherit; border: 0; cursor: pointer; }
+.x, .lnk { background: none; border: 0; text-decoration: underline; cursor: pointer; font: inherit; color: #0066cc; padding: 0; }
+.lnk { margin-top: 16px; }
+#chips { display: flex; gap: 8px; margin-top: 8px; }
+#chips button { padding: 6px 12px; border: 1px solid #999; background: #fff; cursor: pointer; font: inherit; }
+#chips button.on { background: #0066cc; color: #fff; border-color: #0066cc; }
+.row { display: flex; justify-content: space-between; align-items: center; gap: 10px; width: 100%; text-align: left; background: none; border: 0; border-bottom: 1px solid #ddd; padding: 12px 0; cursor: pointer; font: inherit; color: #000; }
+.row b { display: block; }
+.r { text-align: right; flex-shrink: 0; }
+.ok { color: #1a7f37; } .no, .red { color: #c00; } .pa { color: #b36b00; } .na { color: #666; }
+.tbl { width: 100%; border-collapse: collapse; }
+.tbl th, .tbl td { padding: 8px 4px; border-bottom: 1px solid #ddd; text-align: right; vertical-align: top; }
+.tbl th:first-child, .tbl td:first-child { text-align: left; }
+.tbl th small, .tbl td small { display: block; font-weight: normal; }
+.big-num { font-size: 40px; font-weight: bold; margin: 16px 0 4px; }
+.empty { padding: 24px 0; }
+details { margin-top: 24px; border-top: 1px solid #ccc; padding-top: 12px; }
+summary { font-weight: bold; cursor: pointer; }
+.ov { position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 20; display: flex; align-items: flex-end; justify-content: center; }
+.ov[hidden] { display: none; }
+.sh { background: #fff; width: 100%; max-width: 560px; max-height: 92vh; overflow: auto; padding: 16px; }
+.hd { display: flex; justify-content: space-between; align-items: center; font-size: 20px; font-weight: bold; }
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; }
+.seg { display: flex; margin-top: 6px; }
+.seg button { flex: 1; padding: 10px 2px; border: 1px solid #666; background: #fff; font: inherit; cursor: pointer; }
+.seg button.on { background: #0066cc; border-color: #0066cc; color: #fff; }
+.qa { display: flex; gap: 8px; margin: 6px 0; }
+.qa button { flex: 1; padding: 8px; border: 1px solid #666; background: #eee; font: inherit; cursor: pointer; }
+.tot { display: flex; justify-content: space-between; margin-top: 16px; padding: 8px 0; border-top: 1px solid #000; border-bottom: 1px solid #000; font-weight: bold; }
+.act { position: sticky; bottom: 0; background: #fff; padding: 12px 0 0; margin-top: 12px; }
+.hr { display: flex; justify-content: space-between; gap: 10px; padding: 8px 0; border-bottom: 1px solid #ddd; }
+nav { position: fixed; left: 0; right: 0; bottom: 0; display: flex; background: #f2f2f2; border-top: 1px solid #999; z-index: 6; }
+nav button { flex: 1; padding: 14px 4px; border: 0; background: none; font: inherit; cursor: pointer; }
+nav button.on { font-weight: bold; color: #0066cc; border-top: 3px solid #0066cc; }
+#toast { position: fixed; left: 50%; bottom: 70px; transform: translateX(-50%); background: #333; color: #fff; padding: 10px 14px; opacity: 0; pointer-events: none; z-index: 30; max-width: 92%; }
+#toast.on { opacity: 1; }
