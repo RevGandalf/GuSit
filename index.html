@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Tuition Tracker</title>
+<title>SIP Gunungsitoli</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
 <style>
 :root{--paper:#f5f0e6;--sheet:#fbf8f1;--ink:#1f1c17;--mute:#6b6354;--rule:#d8cebb;--red:#b3261e;--grn:#2f6b3f;--och:#8f5f08;--serif:"Source Serif 4",Georgia,"Times New Roman",serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -147,7 +147,6 @@ function owed(s,M){let a=Math.max(s.join?mi(s.join.slice(0,7)):0,mi(C.start)),b=
   if(s.st==='QUIT')b=Math.min(b,s.quit?mi(s.quit.slice(0,7)):-1);
   let o=0;for(let i=a;i<=b;i++)o+=mInfo(s,fm(i)).bal;return r2(o)}
 
-/* ---------- ui helpers ---------- */
 const CH={paid:['Paid ✓','ok'],part:['Partial','pa'],unpaid:['Unpaid','no'],na:['—','na']};
 const chip=(t,l)=>`<span class="st ${CH[t][1]}">${CH[t][0]}${l?' · lump':''}</span>`;
 function monOpts(sel){const lo=Math.min(mi(C.start),mi(today)-6,mi(sel)),hi=Math.max(mi(today)+12,mi(sel));let h='';
@@ -237,7 +236,6 @@ function balSave(){const p=recOf(),b=r2(p.due-p.amt),a=ps.ba==null?b:ps.ba;if(!(
   save(ps.s).then(ok=>{if(ok){closeSh();toast('Saved ✓ '+ps.s.name)}else{p.ins=o.ins;p.amt=o.amt;render()}})}
 function payDel(id){const s=ps.s;s.pays=s.pays.filter(p=>p.id!==id);save(s).then(()=>showPay())}
 
-/* ---------- SUMMARY tab ---------- */
 function vSum(){
   if(!S.length)return emptyMsg;
   const A=S.map(s=>({s,i:mInfo(s,curM),o:owed(s,curM)})),sm=(L,f)=>r2(L.reduce((a,x)=>a+f(x),0));
@@ -254,7 +252,6 @@ function vSum(){
   <h2>Teachers</h2><table class="tbl"><thead><tr><th>Teacher</th><th>Students</th><th>Collected</th><th>Salary</th></tr></thead><tbody>${T}</tbody><tfoot><tr><td colspan="3">Total salaries</td><td>${money(tot)}</td></tr></tfoot></table>
   <h2>Parents who owe<span class="cnt">${O.length}</span></h2>${O.map(x=>`<button class="row" onclick="openPay('${x.s.id}')"><span><b>${esc(x.s.name)}</b><small>${esc(x.s.tch||'No teacher')}</small></span><b class="no amt">${money(x.o)}</b></button>`).join('')||'<div class="empty">Nobody owes anything.</div>'}`}
 
-/* ---------- STUDENTS tab ---------- */
 function vStu(){
   const L=S.filter(s=>s.name.toLowerCase().includes(qv())&&(flt==='all'||s.st!=='QUIT')).sort((a,b)=>a.name.localeCompare(b.name));
   const cls={NEW:'pa',OLD:'na',QUIT:'no'};
@@ -288,7 +285,6 @@ function stuSave(){if(!es.name.trim()){toast('Enter a name');return}
   es.name=es.name.trim();const was=es.nw;delete es.nw;save(es).then(ok=>{if(ok){closeSh();toast('Saved ✓')}else if(was)es.nw=1})}
 function stuDel(){rm(es);closeSh();toast('Deleted')}
 
-/* ---------- EXCEL EXPORT ---------- */
 const XH={font:{bold:true,color:{rgb:'FFFFFF'},name:'Arial',sz:10},fill:{fgColor:{rgb:'1F3864'}},alignment:{horizontal:'center',vertical:'center',wrapText:true}};
 const XF={paid:'C6EFCE',part:'FFEB9C',unpaid:'FFC7CE'},XL={paid:'PAID',part:'PARTIAL',unpaid:'UNPAID',na:''};
 const xb={font:{bold:true,name:'Arial',sz:10}},xt={font:{bold:true,sz:13,name:'Arial',color:{rgb:'1F3864'}}};
